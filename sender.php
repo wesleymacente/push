@@ -3,7 +3,7 @@
 $apiKey = "AIzaSyBBziv2dYAqWDjEV-56WTteiNUlIkZCPFQ";
 
 // Replace with real client registration IDs 
-$registrationIDs = array( "123", "456" );
+$registrationIDs = array( "c6BA8K3F4qw:APA91bE_Su9PP5MV2eHuSym…4vI8zVK_idanIp-MmNzcQxjYWlGjaKFM86WpUWdUUCA9mzrDGbTiXhYGhrHQvoUYl9ykTh3V-k" );
 
 // Message to be sent
 $message = "xsss";
