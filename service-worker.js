@@ -1,20 +1,13 @@
-
-	if ('serviceWorker' in navigator) {
-		navigator.serviceWorker.register('service-worker.js').then(function(registration) {
-			// Registration was successful
-			console.log('ServiceWorker registration successful with scope: ',    registration.scope);
-			registration.pushManager.subscribe({userVisibleOnly: true}).then(function(subscription){
-			isPushEnabled = true;
-			console.log("subscription.subscriptionId: ", subscription.subscriptionId);
-			console.log("subscription.endpoint: ", subscription.endpoint);
-			
-			// TODO: Send the subscription subscription.endpoint
-			// to your server and save it to send a push message
-			// at a later date
-			return sendSubscriptionToServer(subscription);
-			});
-		}).catch(function(err) {
-		// registration failed :(
-		console.log('ServiceWorker registration failed: ', err);
-		});
-		}
+if ('serviceWorker' in navigator) {
+  console.log('Service Worker is supported');
+  navigator.serviceWorker.register('service-worker.js').then(function() {
+    return navigator.serviceWorker.ready;
+  }).then(function(reg) {
+    console.log('Service Worker is ready :^)', reg);
+    reg.pushManager.subscribe({userVisibleOnly: true}).then(function(sub) {
+      console.log('endpoint:', sub.endpoint);
+    });
+  }).catch(function(error) {
+    console.log('Service Worker error :^(', error);
+  });
+}
